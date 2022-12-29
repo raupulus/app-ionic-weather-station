@@ -51,7 +51,7 @@ export default defineComponent({
     const appPages = [
       {
         title: 'Resumen',
-        url: '/folder/Resumen',
+        url: '/',
         iosIcon: mailOutline,
         mdIcon: mailSharp
       },

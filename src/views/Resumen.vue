@@ -23,11 +23,9 @@
                 </h1>
 
                 <div class="box-cards">
-                    <div class="card-resume"
-                    v-for="data of datas" :key="data.slug">
-                        -{{ data.slug }}-
+                    <div v-for="data of datas" :key="data.slug">
+                        <mini-status-card :data="data"></mini-status-card>
                     </div>
-
                 </div>
             </div>
         </ion-content>
@@ -38,6 +36,7 @@
 import { defineComponent } from 'vue';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { useResumeData } from '../composables/useResumeData';
+import MiniStatusCard from '../components/MiniStatusCard.vue';
 
 export default defineComponent({
     name: 'FolderPage',
@@ -48,7 +47,8 @@ export default defineComponent({
         IonMenuButton,
         IonPage,
         IonTitle,
-        IonToolbar
+        IonToolbar,
+        MiniStatusCard,
     },
     setup() {
 
@@ -70,6 +70,8 @@ export default defineComponent({
     font-weight: 800;
     font-size: 3rem;
     background-color: rgb(164, 199, 252);
+    background-position: center;
+    background-size: cover;
     color: #ded8d8;
     text-shadow:
         1px 1px 1px rgb(37, 36, 36),
@@ -83,11 +85,16 @@ export default defineComponent({
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
-.card-resume {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
+
+@media (max-width: 768px) {
+    .box-cards {
+        margin: 0;
+        max-width: 100%;
+        padding: 0;
+        display: block;
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
+
+
 </style>
