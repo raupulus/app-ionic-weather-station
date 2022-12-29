@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">app-ionic-weather-station</string>
+    <string name="title_activity_main">app-ionic-weather-station</string>
+    <string name="package_name">app.ionic.weather.station</string>
+    <string name="custom_url_scheme">app.ionic.weather.station</string>
+</resources>

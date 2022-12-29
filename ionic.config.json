@@ -1,0 +1,7 @@
+{
+  "name": "app-ionic-weather-station",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
