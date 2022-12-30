@@ -1,4 +1,6 @@
 <template>
+
+
     <div class="box-card">
         <div class="divisor divisor-top">
             {{data.name}}
