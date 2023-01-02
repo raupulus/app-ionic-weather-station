@@ -19,7 +19,9 @@
 
         </ion-content>
       </ion-menu>
+
       <ion-router-outlet id="main-content"></ion-router-outlet>
+
     </ion-split-pane>
   </ion-app>
 </template>

@@ -20,10 +20,12 @@
     "@ionic/vue": "^6.0.0",
     "@ionic/vue-router": "^6.0.0",
     "@tailwindcss/postcss7-compat": "^2.2.17",
+    "apexcharts": "^3.36.3",
     "core-js": "^3.6.5",
     "ionicons": "^6.0.3",
     "vue": "^3.2.21",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vue3-apexcharts": "^1.4.1"
   },
   "devDependencies": {
     "@capacitor/cli": "4.6.1",

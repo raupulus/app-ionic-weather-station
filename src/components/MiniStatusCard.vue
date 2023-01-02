@@ -1,6 +1,4 @@
 <template>
-
-
     <div class="box-card">
         <div class="divisor divisor-top">
             {{data.name}}
@@ -10,16 +8,23 @@
              :class="'divisor-middle-' + getColumns(data).length">
             <div class="divisor-middle-item"
                 v-for="column, idx in getColumns(data)" :key="idx">
-                <span>
+                <span class="data">
                     {{data[column]}}
+
+                    <span v-if="getUnity(data.slug, column)" class="data-unity">
+                        {{getUnity(data.slug, column)}}
+                    </span>
                 </span>
+
+
             </div>
         </div>
 
         <div class="divisor divisor-bottom">
-            <p>
-                Parte inferior (Una gráfica aquí, con la evolución de última hora)
-            </p>
+            <apexchart type="bar"
+            width="200px"
+                class="chart"
+            :options="chartOptions" :series="series"></apexchart>
 
             <p class="center">
                 <small>
@@ -32,7 +37,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+
+import { defineComponent, ref } from 'vue'
+
+// https://apexcharts.com/vue-chart-demos/area-charts/datetime-x-axis/
+// https://github.com/apexcharts/vue3-apexcharts
+import VueApexCharts from "vue3-apexcharts";
+
+import { units } from '@/helpers/UnitHelper';
 
 export default defineComponent({
     name: 'MiniStatusCard',
@@ -44,18 +56,96 @@ export default defineComponent({
     },
 
     components: {
-
+        apexchart: VueApexCharts
     },
 
     setup(props: any) {
-        let diffColumns = ref(['name', 'slug', 'created_at']);
+        let diffColumns = ref(['name', 'slug', 'created_at', 'historical']);
 
         const getColumns = (data: any) => Object.keys(data).filter((item: any) => {
             return diffColumns.value.indexOf(item) === -1;
         });
 
+        /**
+         * Obtiene las unidades de medidas de las columnas
+         *
+         * @param slug Slug de la columna
+         * @param column Nombre de la columna
+         */
+        function getUnity(slug: string, column: string) {
+            let datas = units();
+
+            return datas[slug] && datas[slug][column] ? datas[slug][column] : '';
+        }
+
         return {
             getColumns,
+            getUnity,
+            series: [{
+                name: props.data.name,
+                type: 'area',
+                color: '#ffb300',
+                data: props.data.historical ? props.data.historical.map((item: any) => {
+                    return item.value;
+                }) : []
+            }],
+            chartOptions: {
+                chart: {
+                    zoom: {
+                        enabled: false,
+                    },
+                },
+
+                dataLabels: {
+                    enabled: true,
+                },
+                stroke: {
+                    curve: 'smooth',
+                },
+                markers: {
+                    size: 10,
+                    colors: undefined,
+                    strokeColors: '#000',
+                    strokeWidth: 2,
+                    strokeOpacity: 0.9,
+                    strokeDashArray: 0,
+                    fillOpacity: 1,
+                    discrete: [],
+                    shape: "circle",
+                    radius: 3,
+                    offsetX: 0,
+                    offsetY: 0,
+                    onClick: undefined,
+                    onDblClick: undefined,
+                    showNullDataPoints: true,
+                    hover: {
+                        size: undefined,
+                        sizeOffset: 3
+                    }
+                },
+
+                plotOptions: {
+                    bar: {
+                        columnWidth: "20%"
+                    }
+                },
+
+                xaxis: {
+                    type: 'datetime',
+                    categories: props.data.historical ? props.data.historical.map((item: any) => {
+                        return item.timestamp;
+                    }) : []
+
+                },
+
+                tooltip: {
+                    x: {
+                        format: 'dd/MM/yy HH:mm'
+                    },
+                },
+            },
+
+            selection: 'all',
         }
     }
 });
@@ -128,14 +218,13 @@ export default defineComponent({
             width: 100%;
             margin: 0;
         }
-
     }
 
-    .divisor-middle-item span {
+    .divisor-middle-item span.data {
         display: block;
         margin: auto;
         padding: 15px;
-        font-size: 3.2rem;
+        font-size: 2.5rem;
         font-weight: 800;
         background-color: rgba(46, 46, 45, 0.159);
         border-radius: 5px;
@@ -143,5 +232,15 @@ export default defineComponent({
 
     .divisor-bottom {
         text-align: center;
+    }
+
+    .data-unity {
+        font-size: 1rem !important;
+        font-weight: 400 !important;
+    }
+    .chart {
+        margin:auto;
+        width: 200px;
+        max-width: 200px;
     }
 </style>

@@ -1,3 +1,5 @@
+import { ResumeHistoricalType } from './ResumeHistoricalType';
+
 export type AirQuality = {
     name: string,
     slug: string,
@@ -5,4 +7,5 @@ export type AirQuality = {
     tvoc: number,
     quality: number, // 0-100
     created_at: string,
+    historical?: ResumeHistoricalType[];
 }

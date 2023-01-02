@@ -1,3 +1,5 @@
+import { ResumeHistoricalType } from "./ResumeHistoricalType";
+
 export type WindType = {
     name: string,
     slug: string,
@@ -6,4 +8,5 @@ export type WindType = {
     max: number,
     direction: string,
     created_at: string,
+    historical?: ResumeHistoricalType[];
 }

@@ -1,3 +1,5 @@
+import { ResumeHistoricalType } from "./ResumeHistoricalType";
+
 export type LightType = {
     name: string,
     slug: string,
@@ -6,4 +8,5 @@ export type LightType = {
     uva: number,
     uvb: number,
     created_at: string,
+    historical?: ResumeHistoricalType[];
 }
