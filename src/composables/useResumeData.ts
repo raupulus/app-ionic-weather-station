@@ -136,7 +136,7 @@ export function useResumeData() {
         },
         airQuality: {
             name: 'Air Quality',
-            slug: 'air-quality',
+            slug: 'air_quality',
             co2: 420,
             tvoc: 0,
             quality: 100,

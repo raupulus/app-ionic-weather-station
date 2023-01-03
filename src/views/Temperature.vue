@@ -8,9 +8,12 @@
                 <TitleSlide></TitleSlide>
 
                 <div class="box-cards">
-                    <div v-for="data of datas" :key="data.slug">
-                        <mini-status-card :data="data"></mini-status-card>
+                    <div>
+                        <TemperatureResume :datas="datas"></TemperatureResume>
                     </div>
+                    <h1>
+                        AQUÍ TODO EL CONTENIDO EN TARJETITAS
+                    </h1>
                 </div>
             </div>
         </ion-content>
@@ -20,27 +23,27 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { IonContent, IonPage } from '@ionic/vue';
-import { useResumeData } from '../composables/useResumeData';
-import MiniStatusCard from '@/components/MiniStatusCard.vue';
 
 import HeaderMobile from '@/components/HeaderMobile.vue';
 import TitleSlide from '@/components/TitleSlide.vue';
+
+import TemperatureResume from '@/components/temperature/TemperatureResume.vue';
+
+import { temperatureData } from '../composables/temperatureData';
 
 export default defineComponent({
     name: 'FolderPage',
     components: {
         IonContent,
         IonPage,
-        MiniStatusCard,
         HeaderMobile,
-        TitleSlide
+        TitleSlide,
+        TemperatureResume
     },
     setup() {
-
-        const datas = useResumeData().datas;
+        let datas = temperatureData();
 
         return {
-            //datas: useResumeData()
             datas
         }
     }
@@ -48,20 +51,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.box-cards {
-    margin: auto;
-    max-width: 800px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
 
-@media (max-width: 768px) {
-    .box-cards {
-        margin: 0;
-        max-width: 100%;
-        padding: 0;
-        display: block;
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
 </style>

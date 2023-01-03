@@ -10,7 +10,8 @@
             <ion-note>Datos Provisionales (debug)</ion-note>
 
             <ion-menu-toggle auto-hide="false" v-for="(p, i) in appPages" :key="i">
-              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
+              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none"
+                detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
                 <ion-icon slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
               </ion-item>
@@ -30,7 +31,7 @@
 import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import { defineComponent, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { barChartOutline, flashlightOutline, flashOutline, heartCircleOutline, partlySunnyOutline, rainyOutline, trendingUpOutline } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'App',
@@ -54,44 +55,44 @@ export default defineComponent({
       {
         title: 'Resumen',
         url: '/',
-        iosIcon: mailOutline,
-        mdIcon: mailSharp
+        iosIcon: barChartOutline,
+        mdIcon: barChartOutline
       },
       {
         title: 'Clima (temp, humedad, pressión)',
-        url: '/folder/Outbox',
-        iosIcon: paperPlaneOutline,
-        mdIcon: paperPlaneSharp
+        url: '/temperature',
+        iosIcon: partlySunnyOutline,
+        mdIcon: partlySunnyOutline
       },
       {
         title: 'Viento',
         url: '/folder/Favorites',
-        iosIcon: heartOutline,
-        mdIcon: heartSharp
+        iosIcon: trendingUpOutline,
+        mdIcon: trendingUpOutline
       },
       {
         title: 'Luz',
         url: '/folder/Archived',
-        iosIcon: archiveOutline,
-        mdIcon: archiveSharp
+        iosIcon: flashlightOutline,
+        mdIcon: flashlightOutline
       },
       {
         title: 'Calidad del aire',
         url: '/folder/Trash',
-        iosIcon: trashOutline,
-        mdIcon: trashSharp
+        iosIcon: heartCircleOutline,
+        mdIcon: heartCircleOutline
       },
       {
         title: 'Lluvia',
         url: '/folder/Spam',
-        iosIcon: warningOutline,
-        mdIcon: warningSharp
+        iosIcon: rainyOutline,
+        mdIcon: rainyOutline
       },
       {
         title: 'Relámpagos',
         url: '/folder/Spam',
-        iosIcon: warningOutline,
-        mdIcon: warningSharp
+        iosIcon: flashOutline,
+        mdIcon: flashOutline
       }
     ];
 
@@ -105,20 +106,6 @@ export default defineComponent({
     return {
       selectedIndex,
       appPages,
-      archiveOutline,
-      archiveSharp,
-      bookmarkOutline,
-      bookmarkSharp,
-      heartOutline,
-      heartSharp,
-      mailOutline,
-      mailSharp,
-      paperPlaneOutline,
-      paperPlaneSharp,
-      trashOutline,
-      trashSharp,
-      warningOutline,
-      warningSharp,
       isSelected: (url: string) => url === route.path ? 'selected' : ''
     }
   }

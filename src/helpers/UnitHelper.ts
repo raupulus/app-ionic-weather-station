@@ -24,10 +24,16 @@ export function units(): UnitType {
         rain: {
             value: 'mm',
         },
-        airQuality: {
+        air_quality: {
             co2: 'ppm',
             tvoc: 'ppb',
             quality: '%',
+        },
+        light: {
+            value: 'l',
+            index: '%',
+            uva: 'W/m²',
+            uvb: 'W/m²',
         },
 
     };

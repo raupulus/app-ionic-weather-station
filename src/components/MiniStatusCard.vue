@@ -16,7 +16,6 @@
                     </span>
                 </span>
 
-
             </div>
         </div>
 
@@ -46,6 +45,7 @@ import VueApexCharts from "vue3-apexcharts";
 
 import { units } from '@/helpers/UnitHelper';
 
+
 export default defineComponent({
     name: 'MiniStatusCard',
     props: {
@@ -56,7 +56,7 @@ export default defineComponent({
     },
 
     components: {
-        apexchart: VueApexCharts
+        apexchart: VueApexCharts,
     },
 
     setup(props: any) {
