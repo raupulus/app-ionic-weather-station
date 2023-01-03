@@ -7,6 +7,7 @@
                     <div class="w-full py-6 pl-8 pr-32 text-white bg-blue-400 rounded-lg opacity-90">
                         <div class="mb-20">
 
+                            <i :class="temperatureIcon(dayStatus)"></i>
                             <h2 class="pb-1 text-3xl font-bold leading-none">
                                 {{ dayOfWeek }}
                             </h2>
@@ -188,11 +189,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref, PropType } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { sunnyOutline } from 'ionicons/icons';
-import { TemperatureType } from '../../types/TemperatureType';
-import { PropType } from 'vue';
+import { TemperatureType } from '@/types/TemperatureType';
+import { temperatureIcon } from '@/helpers/IconHelper';
 
 export default defineComponent({
     name: 'TemperatureResume',
@@ -206,17 +207,18 @@ export default defineComponent({
         }
     },
     setup(props: any) {
-        console.log(props.datas.value);
-        console.log(props.datas.slug);
-
         const dayOfWeek = 'Thuesday';
         const date = '02 Jan 23';
 
 
+        const dayStatus = ref(props.datas.dayStatus) ?? 'clear-day';
+
         return {
             dayOfWeek,
             date,
-            sunnyOutline
+            sunnyOutline,
+            dayStatus,
+            temperatureIcon
         };
     },
 });
