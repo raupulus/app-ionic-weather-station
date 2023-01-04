@@ -27,6 +27,10 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/Wind.vue')
   },
   {
+    path: '/light',
+    component: () => import('@/views/Light.vue')
+  },
+  {
     path: '/folder/:id',
     component: () => import('@/views/FolderPage.vue')
   }

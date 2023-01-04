@@ -1,8 +1,8 @@
 import { temperatureIcon } from '@/helpers/IconHelper'
 import { ResumeDataType } from '@/types/ResumeDataType'
 import { ref } from 'vue'
-import { temperatureImage, pressureImage, windImage } from '../helpers/ImageHelper';
-import { pressureIcon, windIcon } from '../helpers/IconHelper';
+import { temperatureImage, pressureImage, windImage, lightImage } from '../helpers/ImageHelper';
+import { pressureIcon, windIcon, lightIcon } from '../helpers/IconHelper';
 
 export function useResumeData() {
     const datas = ref<ResumeDataType | null>(null)
@@ -220,23 +220,62 @@ export function useResumeData() {
         light: {
             name: 'Light',
             slug: 'light',
-            value: 100,
-            index: 1,
-            uva: 3,
-            uvb: 2,
-            created_at: '2023-01-03 21:50:00',
+            value: 10,
+            index: 0,
+            uva: 0,
+            uvb: 0,
+            dayStatus: 'noche',
+            icon: lightIcon('noche'),
+            image: lightImage('noche'),
+            created_at: '2023-01-03 22:50:00',
             historical: [
                 {
-                    value: 20,
-                    timestamp: '2022-12-30 23:00:00.0000Z',
+                    name: 'Light',
+                    slug: 'light',
+                    value: 18,
+                    index: 1,
+                    uva: 0,
+                    uvb: 0,
+                    dayStatus: 'noche',
+                    icon: lightIcon('noche'),
+                    image: lightImage('noche'),
+                    created_at: '2023-01-03 21:50:00',
                 },
                 {
+                    name: 'Light',
+                    slug: 'light',
+                    value: 30,
+                    index: 1,
+                    uva: 1,
+                    uvb: 1,
+                    dayStatus: 'anocheciendo',
+                    icon: lightIcon('anocheciendo'),
+                    image: lightImage('anocheciendo'),
+                    created_at: '2023-01-03 19:00:00',
+                },
+                {
+                    name: 'Light',
+                    slug: 'light',
                     value: 40,
-                    timestamp: '2022-12-30 22:00:00.0000Z',
+                    index: 3,
+                    uva: 2,
+                    uvb: 1,
+                    dayStatus: 'atardecer',
+                    icon: lightIcon('atardecer'),
+                    image: lightImage('atardecer'),
+                    created_at: '2023-01-03 18:00:00',
                 },
                 {
-                    value: 46,
-                    timestamp: '2022-12-30 21:00:00.0000Z',
+                    name: 'Light',
+                    slug: 'light',
+                    value: 80,
+                    index: 10,
+                    uva: 4,
+                    uvb: 3,
+                    dayStatus: 'soleado',
+                    icon: lightIcon('soleado'),
+                    image: lightImage('soleado'),
+                    created_at: '2023-01-03 16:00:00',
                 },
             ]
         },

@@ -1,12 +1,9 @@
-import { ResumeHistoricalType } from "./ResumeHistoricalType";
+import { GenericCommonDataType } from './GenericCommonDataType';
 
-export type LightType = {
-    name: string,
-    slug: string,
+export type LightType = GenericCommonDataType & {
     value: number,
     index: number,
     uva: number,
     uvb: number,
-    created_at: string,
-    historical?: ResumeHistoricalType[];
+    historical?: LightType[];
 }

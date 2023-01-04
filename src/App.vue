@@ -84,7 +84,7 @@ export default defineComponent({
       },
       {
         title: 'Luz',
-        url: '/folder/Archived',
+        url: '/light',
         iosIcon: flashlightOutline,
         mdIcon: flashlightOutline
       },
