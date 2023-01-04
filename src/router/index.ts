@@ -15,6 +15,18 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/Temperature.vue')
   },
   {
+    path: '/humidity',
+    component: () => import('@/views/Humidity.vue')
+  },
+  {
+    path: '/pressure',
+    component: () => import('@/views/Pressure.vue')
+  },
+  {
+    path: '/wind',
+    component: () => import('@/views/Wind.vue')
+  },
+  {
     path: '/folder/:id',
     component: () => import('@/views/FolderPage.vue')
   }

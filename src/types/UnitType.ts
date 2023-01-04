@@ -3,3 +3,7 @@ export type UnitType = {
         [key: string]: string
     }
 }
+
+export type ObjectToString = {
+    [key: string]: string
+}

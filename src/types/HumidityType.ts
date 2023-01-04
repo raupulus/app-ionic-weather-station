@@ -1,9 +1,6 @@
-import { ResumeHistoricalType } from "./ResumeHistoricalType";
+import { GenericCommonDataType } from './GenericCommonDataType';
 
-export type HumidityType = {
-    name: string,
-    slug: string,
+export type HumidityType = GenericCommonDataType & {
     value: number,
-    created_at: string,
-    historical?: ResumeHistoricalType[];
+    historical?: HumidityType[];
 }

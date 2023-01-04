@@ -1,7 +1,7 @@
 <template>
     <ion-page>
 
-        <HeaderMobile></HeaderMobile>
+        <HeaderMobile title="Humedad"></HeaderMobile>
 
         <ion-content :fullscreen="true">
             <div id="container">
@@ -26,10 +26,10 @@ import TitleSlide from '@/components/TitleSlide.vue';
 
 import MainWidgetResume from '@/components/MainWidgetResume.vue';
 
-import { temperatureData } from '../composables/temperatureData';
+import { humidityData } from '@/composables/humidityData';
 
 export default defineComponent({
-    name: 'TemperaturePage',
+    name: 'HumidityPage',
     components: {
         IonContent,
         IonPage,
@@ -38,7 +38,7 @@ export default defineComponent({
         MainWidgetResume
     },
     setup() {
-        let datas = temperatureData();
+        let datas = humidityData();
 
         return {
             datas

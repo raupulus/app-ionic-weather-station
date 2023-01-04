@@ -4,7 +4,7 @@
             <ion-buttons slot="start">
                 <ion-menu-button color="primary"></ion-menu-button>
             </ion-buttons>
-            <ion-title>Resumen General</ion-title>
+            <ion-title>{{ title }}</ion-title>
         </ion-toolbar>
     </ion-header>
 
@@ -22,6 +22,12 @@ import { IonButtons, IonHeader, IonMenuButton, IonTitle, IonToolbar } from '@ion
 
 export default defineComponent({
     name: 'HeaderMobile',
+    props: {
+        title: {
+            type: String,
+            default: 'El tiempo en Chipiona'
+        }
+    },
     components: {
         IonButtons,
         IonHeader,

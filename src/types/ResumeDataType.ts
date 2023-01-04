@@ -6,7 +6,7 @@ import { PressureType } from "./PressureType";
 import { TemperatureType } from "./TemperatureType";
 import { WindType } from "./WindType";
 
-export type ResumeDataType {
+export type ResumeDataType = {
     lighting?: LightningType,
     temperature?: TemperatureType,
     humidity?: HumidityType,

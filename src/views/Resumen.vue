@@ -1,7 +1,7 @@
 <template>
     <ion-page>
 
-        <HeaderMobile></HeaderMobile>
+        <HeaderMobile title="Resumen Global"></HeaderMobile>
 
         <ion-content :fullscreen="true">
             <div id="container">
@@ -27,7 +27,7 @@ import HeaderMobile from '@/components/HeaderMobile.vue';
 import TitleSlide from '@/components/TitleSlide.vue';
 
 export default defineComponent({
-    name: 'FolderPage',
+    name: 'ResumePage',
     components: {
         IonContent,
         IonPage,
@@ -40,7 +40,6 @@ export default defineComponent({
         const datas = useResumeData().datas;
 
         return {
-            //datas: useResumeData()
             datas
         }
     }

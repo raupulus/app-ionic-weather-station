@@ -31,7 +31,7 @@
 import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import { defineComponent, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { barChartOutline, flashlightOutline, flashOutline, heartCircleOutline, partlySunnyOutline, rainyOutline, trendingUpOutline } from 'ionicons/icons';
+import { barChartOutline, businessOutline, downloadOutline, flashlightOutline, flashOutline, heartCircleOutline, informationCircleOutline, rainyOutline, thermometerOutline, trendingUpOutline, waterOutline } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'App',
@@ -59,14 +59,26 @@ export default defineComponent({
         mdIcon: barChartOutline
       },
       {
-        title: 'Clima (temp, humedad, pressión)',
+        title: 'Temperatura',
         url: '/temperature',
-        iosIcon: partlySunnyOutline,
-        mdIcon: partlySunnyOutline
+        iosIcon: thermometerOutline,
+        mdIcon: thermometerOutline
+      },
+      {
+        title: 'Humedad',
+        url: '/humidity',
+        iosIcon: waterOutline,
+        mdIcon: waterOutline
+      },
+      {
+        title: 'Pressión',
+        url: '/pressure',
+        iosIcon: downloadOutline,
+        mdIcon: downloadOutline
       },
       {
         title: 'Viento',
-        url: '/folder/Favorites',
+        url: '/wind',
         iosIcon: trendingUpOutline,
         mdIcon: trendingUpOutline
       },
@@ -93,10 +105,23 @@ export default defineComponent({
         url: '/folder/Spam',
         iosIcon: flashOutline,
         mdIcon: flashOutline
+      },
+      {
+        title: 'AEMET',
+        url: '/folder/aemet',
+        iosIcon: businessOutline,
+        mdIcon: businessOutline
+      },
+      {
+        title: 'Sobre el Proyecto',
+        url: '/folder/about',
+        iosIcon: informationCircleOutline,
+        mdIcon: informationCircleOutline
       }
     ];
 
     const path = window.location.pathname.split('folder/')[1];
+
     if (path !== undefined) {
       selectedIndex.value = appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }

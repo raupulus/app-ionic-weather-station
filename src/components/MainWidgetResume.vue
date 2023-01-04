@@ -5,9 +5,10 @@
                 <div class="flex w-full bg-auto rounded-lg lg:w-1/2"
                     :style="{ backgroundImage: `url(${datas.image})` }">
                     <div class="w-full py-6 pl-8 pr-32 text-white bg-blue-400 rounded-lg opacity-90">
-                        <div class="mb-20">
+                        <div class="mb-2">
 
                             <i :class="datas.icon"></i>
+
                             <h2 class="pb-1 text-3xl font-bold leading-none">
                                 {{ stringUTCToWeekDay(datas.created_at) }}
                             </h2>
@@ -17,24 +18,25 @@
                             </h3>
                         </div>
 
-                        <div v-for="column, idx in getColumns(datas)" :key="idx">
-                            <i class="text-8xl" :class="datas.icon"></i>
+                        <div v-for="column, idx in getColumns(datas)" class="inline-block text-center" :key="idx">
+                            <i class="text-8xl" :class="datas.icon" v-if="idx === 0"></i>
 
-
-                            <strong class="block text-6xl leading-none font-weight-bolder">
-                                {{ datas.value }}
+                            <strong
+                                class="block p-2 mt-4 ml-2 text-4xl leading-none bg-gray-800 rounded-md font-weight-bolder">
+                                {{ datas[column] }}
                                 {{ getUnity(datas.slug, column) }}
                             </strong>
-                            <b class="block text-2xl font-bold capitalize">
-                                {{ datas.dayStatus }}
-                            </b>
 
                         </div>
+
+                        <span class="block text-xl font-bold capitalize">
+                            {{ datas.dayStatus }}
+                        </span>
                     </div>
                 </div>
 
 
-                <div class="flex w-full ml-0 lg:w-1/2">
+                <div class="flex w-full ml-0 -mt-3 lg:w-1/2">
                     <div class="w-full p-8 text-white bg-gray-800 lg:my-3 lg:rounded-r-lg">
 
                         <div class="flex flex-row">
@@ -73,14 +75,17 @@ import { TemperatureType } from '@/types/TemperatureType';
 import { temperatureIcon } from '@/helpers/IconHelper';
 import { stringUTCToHour, stringUTCToLocaleDate, stringUTCToWeekDay } from '@/helpers/DateHelper';
 import { getUnity, getColumns } from '@/helpers/UnitHelper';
+import { HumidityType } from '../types/HumidityType';
+
+import { ObjectToString } from '@/types/UnitType';
 
 export default defineComponent({
-    name: 'TemperatureResume',
+    name: 'MainWidgetResume',
     components: {
     },
     props: {
         datas: {
-            type: Object as PropType<TemperatureType>,
+            type: Object as PropType<TemperatureType | HumidityType>,
             required: false,
         }
     },

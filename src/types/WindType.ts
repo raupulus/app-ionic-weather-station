@@ -1,12 +1,9 @@
-import { ResumeHistoricalType } from "./ResumeHistoricalType";
+import { GenericCommonDataType } from './GenericCommonDataType';
 
-export type WindType = {
-    name: string,
-    slug: string,
+export type WindType = GenericCommonDataType & {
     speed: number,
     min: number,
     max: number,
     direction: string,
-    created_at: string,
-    historical?: ResumeHistoricalType[];
+    historical?: WindType[];
 }
