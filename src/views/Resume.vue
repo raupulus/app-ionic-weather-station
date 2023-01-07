@@ -7,9 +7,11 @@
             <div id="container">
                 <TitleSlide></TitleSlide>
 
-                <div class="box-cards">
-                    <div v-for="data of datas" :key="data.slug">
-                        <mini-status-card :data="data"></mini-status-card>
+                <div class="box-cards" v-if="datas">
+                    <div v-for="data of datas" :key="data ? data.slug : Math.random()">
+                        <div v-if="data" class="p-0 m-0">
+                            <mini-status-card :data="data"></mini-status-card>
+                        </div>
                     </div>
                 </div>
             </div>

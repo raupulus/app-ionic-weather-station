@@ -18,7 +18,7 @@
         </div>
 
         <div class="divisor divisor-bottom">
-            <apexchart type="bar" width="200px" class="chart" :options="chartOptions" :series="series"></apexchart>
+            <apexchart type="bar" class="chart" :options="chartOptions" :series="series"></apexchart>
 
             <p class="center">
                 <small>
@@ -39,6 +39,7 @@ import { defineComponent } from 'vue'
 import VueApexCharts from "vue3-apexcharts";
 
 import { getUnity, getColumns } from '@/helpers/UnitHelper';
+import { units } from '../helpers/UnitHelper';
 
 
 export default defineComponent({
@@ -55,6 +56,9 @@ export default defineComponent({
     },
 
     setup(props: any) {
+
+        const statColumn = Object.keys(units()[props.data.slug])[0];
+
         return {
             getColumns,
             getUnity,
@@ -63,7 +67,7 @@ export default defineComponent({
                 type: 'area',
                 color: '#ffb300',
                 data: props.data.historical ? props.data.historical.map((item: any) => {
-                    return item.value;
+                    return item[statColumn];
                 }) : []
             }],
             chartOptions: {
@@ -110,7 +114,7 @@ export default defineComponent({
                 xaxis: {
                     type: 'datetime',
                     categories: props.data.historical ? props.data.historical.map((item: any) => {
-                        return item.timestamp;
+                        return item.created_at;
                     }) : []
 
                 },
