@@ -31,6 +31,14 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/Light.vue')
   },
   {
+    path: '/air-quality',
+    component: () => import('@/views/AirQuality.vue')
+  },
+  {
+    path: '/rain',
+    component: () => import('@/views/Rain.vue')
+  },
+  {
     path: '/folder/:id',
     component: () => import('@/views/FolderPage.vue')
   }

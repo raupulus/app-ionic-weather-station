@@ -1,8 +1,8 @@
 import { temperatureIcon } from '@/helpers/IconHelper'
 import { ResumeDataType } from '@/types/ResumeDataType'
 import { ref } from 'vue'
-import { temperatureImage, pressureImage, windImage, lightImage } from '../helpers/ImageHelper';
-import { pressureIcon, windIcon, lightIcon } from '../helpers/IconHelper';
+import { temperatureImage, pressureImage, windImage, lightImage, rainImage } from '../helpers/ImageHelper';
+import { pressureIcon, windIcon, lightIcon, rainIcon } from '../helpers/IconHelper';
 
 export function useResumeData() {
     const datas = ref<ResumeDataType | null>(null)
@@ -300,6 +300,46 @@ export function useResumeData() {
                 },
             ]
         },
+        rain: {
+            name: 'Lluvia',
+            slug: 'rain',
+            value: 200,
+            created_at: '2023-01-03 21:50:00',
+            dayStatus: 'many',
+            icon: rainIcon('many'),
+            image: rainImage('many'),
+            historical: [
+                {
+                    name: 'Lluvia',
+                    slug: 'rain',
+                    value: 50,
+                    created_at: '2023-01-03 21:50:00',
+                    dayStatus: 'some',
+                    icon: rainIcon('some'),
+                    image: rainImage('some'),
+                },
+
+                {
+                    name: 'Lluvia',
+                    slug: 'rain',
+                    value: 70,
+                    created_at: '2023-01-03 21:50:00',
+                    dayStatus: 'some',
+                    icon: rainIcon('some'),
+                    image: rainImage('some'),
+                },
+
+                {
+                    name: 'Lluvia',
+                    slug: 'rain',
+                    value: 0,
+                    created_at: '2023-01-03 21:50:00',
+                    dayStatus: 'null',
+                    icon: rainIcon('null'),
+                    image: rainImage('null'),
+                },
+            ],
+        },
         airQuality: {
             name: 'Air Quality',
             slug: 'air_quality',
@@ -307,18 +347,42 @@ export function useResumeData() {
             tvoc: 0,
             quality: 100,
             created_at: '2023-01-03 21:50:00',
+            dayStatus: 'bad',
+            icon: lightIcon('bad'),
+            image: lightImage('bad'),
             historical: [
                 {
-                    value: 418,
-                    timestamp: '2022-12-30 23:00:00.0000Z',
+                    name: 'Air Quality',
+                    slug: 'air_quality',
+                    co2: 415,
+                    tvoc: 0,
+                    quality: 100,
+                    dayStatus: 'good',
+                    icon: lightIcon('good'),
+                    image: lightImage('good'),
+                    created_at: '2023-01-03 21:50:00',
                 },
                 {
-                    value: 420,
-                    timestamp: '2022-12-30 22:00:00.0000Z',
+                    name: 'Air Quality',
+                    slug: 'air_quality',
+                    co2: 412,
+                    tvoc: 0,
+                    quality: 100,
+                    dayStatus: 'good',
+                    icon: lightIcon('good'),
+                    image: lightImage('good'),
+                    created_at: '2023-01-03 21:50:00',
                 },
                 {
-                    value: 419,
-                    timestamp: '2022-12-30 21:00:00.0000Z',
+                    name: 'Air Quality',
+                    slug: 'air_quality',
+                    co2: 417,
+                    tvoc: 0,
+                    quality: 100,
+                    dayStatus: 'regular',
+                    icon: lightIcon('regular'),
+                    image: lightImage('regular'),
+                    created_at: '2023-01-03 21:50:00',
                 },
             ]
         }

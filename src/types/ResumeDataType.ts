@@ -1,10 +1,11 @@
-import { AirQuality } from "./AirQuality";
+import { AirQualityType } from "./AirQualityType";
 import { HumidityType } from "./HumidityType";
 import { LightningType } from "./LightningType";
 import { LightType } from "./LightType";
 import { PressureType } from "./PressureType";
 import { TemperatureType } from "./TemperatureType";
 import { WindType } from "./WindType";
+import { RainType } from './RainType';
 
 export type ResumeDataType = {
     lighting?: LightningType,
@@ -13,5 +14,6 @@ export type ResumeDataType = {
     pressure?: PressureType,
     wind?: WindType,
     light?: LightType,
-    airQuality?: AirQuality,
+    airQuality?: AirQualityType,
+    rain?: RainType,
 }

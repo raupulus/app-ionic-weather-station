@@ -90,13 +90,13 @@ export default defineComponent({
       },
       {
         title: 'Calidad del aire',
-        url: '/folder/Trash',
+        url: '/air-quality',
         iosIcon: heartCircleOutline,
         mdIcon: heartCircleOutline
       },
       {
         title: 'Lluvia',
-        url: '/folder/Spam',
+        url: '/rain',
         iosIcon: rainyOutline,
         mdIcon: rainyOutline
       },
