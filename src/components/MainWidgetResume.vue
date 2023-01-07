@@ -77,7 +77,7 @@ import { stringUTCToHour, stringUTCToLocaleDate, stringUTCToWeekDay } from '@/he
 import { getUnity, getColumns } from '@/helpers/UnitHelper';
 import { HumidityType } from '../types/HumidityType';
 
-import { ObjectToString } from '@/types/UnitType';
+//import { ObjectToString } from '@/types/UnitType';
 
 export default defineComponent({
     name: 'MainWidgetResume',
