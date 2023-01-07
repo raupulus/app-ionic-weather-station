@@ -38,10 +38,28 @@ const routes: Array<RouteRecordRaw> = [
     path: '/rain',
     component: () => import('@/views/Rain.vue')
   },
+
+  {
+    path: '/lightning',
+    component: () => import('@/views/Lightning.vue')
+  },
+
+  {
+    path: '/aemet',
+    component: () => import('@/views/Aemet.vue')
+  },
+
+  {
+    path: '/about',
+    component: () => import('@/views/About.vue')
+  },
+
+  /*
   {
     path: '/folder/:id',
     component: () => import('@/views/FolderPage.vue')
   }
+  */
 ]
 
 const router = createRouter({

@@ -8,7 +8,7 @@ import { WindType } from "./WindType";
 import { RainType } from './RainType';
 
 export type ResumeDataType = {
-    lighting?: LightningType,
+    lightning?: LightningType,
     temperature?: TemperatureType,
     humidity?: HumidityType,
     pressure?: PressureType,

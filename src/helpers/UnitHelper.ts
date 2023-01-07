@@ -3,6 +3,7 @@ import { UnitType } from "@/types/UnitType";
 export function units(): UnitType {
     const datas: UnitType = {
         lightning: {
+            quantity: 'nº',
             distance: 'km',
             energy: 'kA',
         },
@@ -25,13 +26,13 @@ export function units(): UnitType {
             value: 'mm',
         },
         air_quality: {
+            quality: '%',
             co2: 'ppm',
             tvoc: 'ppb',
-            quality: '%',
         },
         light: {
-            value: 'l',
             index: '%',
+            value: 'l',
             uva: 'W/m²',
             uvb: 'W/m²',
         },

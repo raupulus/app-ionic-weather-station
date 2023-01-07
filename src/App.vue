@@ -102,19 +102,19 @@ export default defineComponent({
       },
       {
         title: 'Relámpagos',
-        url: '/folder/Spam',
+        url: '/lightning',
         iosIcon: flashOutline,
         mdIcon: flashOutline
       },
       {
         title: 'AEMET',
-        url: '/folder/aemet',
+        url: '/aemet',
         iosIcon: businessOutline,
         mdIcon: businessOutline
       },
       {
         title: 'Sobre el Proyecto',
-        url: '/folder/about',
+        url: '/about',
         iosIcon: informationCircleOutline,
         mdIcon: informationCircleOutline
       }

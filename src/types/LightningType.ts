@@ -1,10 +1,8 @@
-import { ResumeHistoricalType } from './ResumeHistoricalType';
+import { GenericCommonDataType } from './GenericCommonDataType';
 
-export type LightningType = {
-    name: string,
-    slug: string,
+export type LightningType = GenericCommonDataType & {
     distance: number,
     energy: number,
-    created_at: string,
-    historical?: ResumeHistoricalType[];
+    quantity: number,
+    historical?: LightningType[];
 }

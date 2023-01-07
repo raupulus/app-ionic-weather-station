@@ -1,8 +1,8 @@
 import { temperatureIcon } from '@/helpers/IconHelper'
 import { ResumeDataType } from '@/types/ResumeDataType'
 import { ref } from 'vue'
-import { temperatureImage, pressureImage, windImage, lightImage, rainImage } from '../helpers/ImageHelper';
-import { pressureIcon, windIcon, lightIcon, rainIcon } from '../helpers/IconHelper';
+import { temperatureImage, pressureImage, windImage, lightImage, rainImage, lightningImage } from '../helpers/ImageHelper';
+import { pressureIcon, windIcon, lightIcon, rainIcon, lightningIcon } from '../helpers/IconHelper';
 
 export function useResumeData() {
     const datas = ref<ResumeDataType | null>(null)
@@ -279,24 +279,60 @@ export function useResumeData() {
                 },
             ]
         },
-        lighting: {
-            name: 'Lightning',
+        lightning: {
+            name: 'Relámpagos',
             slug: 'lightning',
+            quantity: 17,
             distance: 3,
             energy: 451946,
             created_at: '2023-01-03 21:50:00',
+            dayStatus: 'many',
+            icon: lightningIcon('many'),
+            image: lightningImage('many'),
             historical: [
                 {
-                    value: 1,
-                    timestamp: '2022-12-30 23:00:00.0000Z',
+                    name: 'Relámpagos',
+                    slug: 'lightning',
+                    quantity: 11,
+                    distance: 3,
+                    energy: 451946,
+                    created_at: '2023-01-03 21:40:00',
+                    dayStatus: 'many',
+                    icon: lightningIcon('many'),
+                    image: lightningImage('many'),
                 },
                 {
-                    value: 2,
-                    timestamp: '2022-12-30 22:00:00.0000Z',
+                    name: 'Relámpagos',
+                    slug: 'lightning',
+                    quantity: 2,
+                    distance: 7,
+                    energy: 311946,
+                    created_at: '2023-01-03 21:30:00',
+                    dayStatus: 'some',
+                    icon: lightningIcon('some'),
+                    image: lightningImage('some'),
                 },
                 {
-                    value: 3,
-                    timestamp: '2022-12-30 21:00:00.0000Z',
+                    name: 'Relámpagos',
+                    slug: 'lightning',
+                    quantity: 0,
+                    distance: 0,
+                    energy: 0,
+                    created_at: '2023-01-03 21:20:00',
+                    dayStatus: 'null',
+                    icon: lightningIcon('null'),
+                    image: lightningImage('null'),
+                },
+                {
+                    name: 'Relámpagos',
+                    slug: 'lightning',
+                    quantity: 0,
+                    distance: 0,
+                    energy: 0,
+                    created_at: '2023-01-03 21:10:00',
+                    dayStatus: 'null',
+                    icon: lightningIcon('null'),
+                    image: lightningImage('null'),
                 },
             ]
         },
