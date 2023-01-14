@@ -1,32 +1,34 @@
 export function temperatureImage(status: string): string {
     const availableImages: { [key: string]: string } = {
-        'soleado': require('@/assets/images/backgrounds/temperature/soleado.webp'),
-        'noche': require('@/assets/images/backgrounds/temperature/noche.webp'),
-        'anocheciendo': require('@/assets/images/backgrounds/temperature/anocheciendo.webp'),
-        'atardecer': require('@/assets/images/backgrounds/temperature/atardecer.webp'),
-        'nublado': require('@/assets/images/backgrounds/temperature/nublado.webp'),
+        'agradable': require('@/assets/images/backgrounds/temperature/agradable.webp'),
+        'calor-extremo': require('@/assets/images/backgrounds/temperature/calor-extremo.webp'),
+        'calor': require('@/assets/images/backgrounds/temperature/calor.webp'),
+        'frio': require('@/assets/images/backgrounds/temperature/frio.webp'),
+        'mucho-calor': require('@/assets/images/backgrounds/temperature/mucho-calor.webp'),
+        'mucho-frio': require('@/assets/images/backgrounds/temperature/mucho-frio.webp'),
+        'nieve': require('@/assets/images/backgrounds/temperature/nieve.webp'),
     };
 
     if (availableImages[status]) {
         return availableImages[status];
     } else {
-        return require('@/assets/images/backgrounds/temperature/soleado.webp');
+        return require('@/assets/images/backgrounds/temperature/agradable.webp');
     }
 }
 
 export function humidityImage(status: string): string {
     const availableImages: { [key: string]: string } = {
-        'soleado': require('@/assets/images/backgrounds/humidity/soleado.webp'),
-        'noche': require('@/assets/images/backgrounds/humidity/noche.webp'),
-        'anocheciendo': require('@/assets/images/backgrounds/humidity/anocheciendo.webp'),
-        'atardecer': require('@/assets/images/backgrounds/humidity/atardecer.webp'),
-        'nublado': require('@/assets/images/backgrounds/humidity/nublado.webp'),
+        'baja': require('@/assets/images/backgrounds/humidity/baja.webp'),
+        'normal': require('@/assets/images/backgrounds/humidity/normal.webp'),
+        'media': require('@/assets/images/backgrounds/humidity/media.webp'),
+        'alta': require('@/assets/images/backgrounds/humidity/alta.webp'),
+        'muy-alta': require('@/assets/images/backgrounds/humidity/muy-alta.webp'),
     };
 
     if (availableImages[status]) {
         return availableImages[status];
     } else {
-        return require('@/assets/images/backgrounds/humidity/soleado.webp');
+        return require('@/assets/images/backgrounds/humidity/normal.webp');
     }
 }
 

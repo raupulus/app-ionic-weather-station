@@ -3,19 +3,13 @@ export function temperatureIcon(status: string): string {
     let icon = 'wi wi-day-sunny';
 
     const availableIcons: { [key: string]: string } = {
-        'soleado': 'wi wi-day-sunny',
-        'atardecer': 'wi wi-day-sunny-overcast',
-        'nublado': 'wi wi-cloudy',
-        'anocheciendo': 'wi wi-night-sleet',
-        'noche': 'wi wi-night-clear',
-        'rain': 'wi wi-rain',
-        'snow': 'wi wi-snow',
-        'sleet': 'wi wi-sleet',
-        'wind': 'wi wi-windy',
-        'fog': 'wi wi-fog',
-        'cloudy': 'wi wi-cloudy',
-        'partly-cloudy-day': 'wi wi-day-cloudy',
-        'partly-cloudy-night': 'wi wi-night-cloudy',
+        'agradable': 'wi wi-day-sunny',
+        'calor-extremo': 'wi wi-fire',
+        'calor': 'wi wi-thermometer',
+        'frio': 'wi wi-thermometer-exterior',
+        'mucho-calor': 'wi wi-volcano',
+        'mucho-frio': 'wi wi-thermometer-internal',
+        'nieve': 'wi wi-snowflake-cold',
     };
 
     if (availableIcons[status]) {
@@ -27,22 +21,14 @@ export function temperatureIcon(status: string): string {
 
 export function humidityIcon(status: string): string {
 
-    let icon = 'wi wi-day-sunny';
+    let icon = 'wi wi-humidity';
 
     const availableIcons: { [key: string]: string } = {
-        'soleado': 'wi wi-day-sunny',
-        'atardecer': 'wi wi-day-sunny-overcast',
-        'nublado': 'wi wi-cloudy',
-        'anocheciendo': 'wi wi-night-sleet',
-        'noche': 'wi wi-night-clear',
-        'rain': 'wi wi-rain',
-        'snow': 'wi wi-snow',
-        'sleet': 'wi wi-sleet',
-        'wind': 'wi wi-windy',
-        'fog': 'wi wi-fog',
-        'cloudy': 'wi wi-cloudy',
-        'partly-cloudy-day': 'wi wi-day-cloudy',
-        'partly-cloudy-night': 'wi wi-night-cloudy',
+        'baja': 'wi wi-windy',
+        'normal': 'wi wi-cloud-refresh',
+        'media': 'wi wi-humidity',
+        'alta': 'wi wi-night-sleet',
+        'muy-alta': 'wi wi-night-showers',
     };
 
     if (availableIcons[status]) {

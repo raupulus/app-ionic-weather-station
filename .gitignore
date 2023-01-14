@@ -34,3 +34,9 @@ npm-debug.log*
 
 
 /android/.idea/
+/.env.local
+/.env
+/.env.production
+/.env.staging
+/.env.test
+/.env.development
