@@ -46,6 +46,7 @@
                                 <div class="pt-2 mb-2 text-center">
                                     <i :class="historical.icon"></i>
                                 </div>
+
                                 <div class="text-center">
                                     <b class="font-normal">
                                         {{ stringUTCToHour(historical.created_at) }}
@@ -54,7 +55,7 @@
                                     <br>
 
                                     <strong class="text-xl">
-                                        {{ historical.value }}
+                                        {{ historical[getColumns(datas)[0]] }}
                                         {{ getUnity(datas.slug, getColumns(datas)[0]) }}
                                     </strong>
                                 </div>
@@ -78,6 +79,12 @@ import { getUnity, getColumns } from '@/helpers/UnitHelper';
 import { HumidityType } from '../types/HumidityType';
 
 //import { ObjectToString } from '@/types/UnitType';
+import { AirQualityType } from '../types/AirQualityType';
+import { LightningType } from '../types/LightningType';
+import { LightType } from '@/types/LightType';
+import { PressureType } from '../types/PressureType';
+import { RainType } from '../types/RainType';
+import { WindType } from '../types/WindType';
 
 export default defineComponent({
     name: 'MainWidgetResume',
@@ -85,7 +92,7 @@ export default defineComponent({
     },
     props: {
         datas: {
-            type: Object as PropType<TemperatureType | HumidityType>,
+            type: Object as PropType<TemperatureType | HumidityType | AirQualityType | LightningType | LightType | PressureType | RainType | WindType>,
             required: false,
         }
     },

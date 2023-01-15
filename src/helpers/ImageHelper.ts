@@ -48,17 +48,17 @@ export function pressureImage(status: string): string {
 
 export function windImage(status: string): string {
     const availableImages: { [key: string]: string } = {
-        'soleado': require('@/assets/images/backgrounds/wind/soleado.webp'),
-        'noche': require('@/assets/images/backgrounds/wind/noche.webp'),
-        'anocheciendo': require('@/assets/images/backgrounds/wind/anocheciendo.webp'),
-        'atardecer': require('@/assets/images/backgrounds/wind/atardecer.webp'),
-        'nublado': require('@/assets/images/backgrounds/wind/nublado.webp'),
+        'null': require('@/assets/images/backgrounds/wind/null.webp'),
+        'bajo': require('@/assets/images/backgrounds/wind/bajo.webp'),
+        'moderado': require('@/assets/images/backgrounds/wind/moderado.webp'),
+        'alto': require('@/assets/images/backgrounds/wind/alto.webp'),
+        'muy-alto': require('@/assets/images/backgrounds/wind/muy-alto.webp'),
     };
 
     if (availableImages[status]) {
         return availableImages[status];
     } else {
-        return require('@/assets/images/backgrounds/wind/soleado.webp');
+        return require('@/assets/images/backgrounds/wind/null.webp');
     }
 }
 

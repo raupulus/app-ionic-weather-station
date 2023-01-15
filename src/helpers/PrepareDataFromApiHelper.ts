@@ -1,12 +1,13 @@
 import { TemperatureType } from '../types/TemperatureType';
-import { temperatureIcon } from './IconHelper';
-import { temperatureImage } from './ImageHelper';
+import { temperatureIcon, windIcon } from './IconHelper';
+import { temperatureImage, windImage } from './ImageHelper';
 import { HumidityType } from '../types/HumidityType';
 import { humidityIcon } from './IconHelper';
 import { humidityImage } from './ImageHelper';
 import { pressureIcon } from '@/helpers/IconHelper';
 import { pressureImage } from '@/helpers/ImageHelper';
 import { PressureType } from '../types/PressureType';
+import { WindType } from '../types/WindType';
 
 export function prepareTemperature(datas: TemperatureType): TemperatureType {
 
@@ -96,6 +97,36 @@ export function preparePressure(datas: PressureType): PressureType {
         });
     }
 
+    return datas;
+}
+
+export function prepareWind(datas: WindType): WindType {
+    const speed = datas.speed;
+
+    // TODO: Traer de la API km/h, actualmente son m/s
+
+    if (speed === 0) {
+        datas.dayStatus = 'null';
+    } else if (speed > 5) {
+        datas.dayStatus = 'bajo';
+    } else if (speed < 10) {
+        datas.dayStatus = 'moderado';
+    } else if (speed < 20) {
+        datas.dayStatus = 'alto';
+    } else if (speed < 30) {
+        datas.dayStatus = 'muy-alto';
+    } else {
+        datas.dayStatus = 'null';
+    }
+
+    datas.icon = windIcon(datas.dayStatus);
+    datas.image = windImage(datas.dayStatus);
+
+    if (datas.historical) {
+        datas.historical.forEach((data) => {
+            prepareWind(data);
+        });
+    }
 
     return datas;
 }
