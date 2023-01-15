@@ -4,6 +4,9 @@ import { temperatureImage } from './ImageHelper';
 import { HumidityType } from '../types/HumidityType';
 import { humidityIcon } from './IconHelper';
 import { humidityImage } from './ImageHelper';
+import { pressureIcon } from '@/helpers/IconHelper';
+import { pressureImage } from '@/helpers/ImageHelper';
+import { PressureType } from '../types/PressureType';
 
 export function prepareTemperature(datas: TemperatureType): TemperatureType {
 
@@ -63,6 +66,33 @@ export function prepareHumidity(datas: HumidityType): HumidityType {
     if (datas.historical) {
         datas.historical.forEach((data) => {
             prepareHumidity(data);
+        });
+    }
+
+
+    return datas;
+}
+
+
+export function preparePressure(datas: PressureType): PressureType {
+    const pressure = datas.value;
+
+    if (pressure >= 1011 && pressure <= 1015) {
+        datas.dayStatus = 'normal';
+    } else if (pressure > 1015) {
+        datas.dayStatus = 'alta';
+    } else if (pressure < 1011) {
+        datas.dayStatus = 'baja';
+    } else {
+        datas.dayStatus = 'normal';
+    }
+
+    datas.icon = pressureIcon(datas.dayStatus);
+    datas.image = pressureImage(datas.dayStatus);
+
+    if (datas.historical) {
+        datas.historical.forEach((data) => {
+            preparePressure(data);
         });
     }
 

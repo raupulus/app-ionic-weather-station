@@ -1,68 +1,32 @@
-import { pressureIcon } from '@/helpers/IconHelper';
-import { pressureImage } from '@/helpers/ImageHelper';
+
 import { ref } from 'vue'
 import { PressureType } from '@/types/PressureType';
+import { preparePressure } from '../helpers/PrepareDataFromApiHelper';
+import { LaravelEcho } from '@/plugins/LaravelEcho';
 
 export function pressureData() {
     const datas = ref<PressureType | null>(null)
 
-    setTimeout(() => {
-        datas.value = {
-            name: 'Pressure',
-            slug: 'pressure',
-            value: 1013,
-            created_at: '2023-01-03 21:50:00',
-            dayStatus: 'soleado',
-            icon: pressureIcon('soleado'),
-            image: pressureImage('soleado'),
-            historical: [
-                {
-                    name: 'Pressure',
-                    slug: 'pressure',
-                    value: 1012,
-                    created_at: '2023-01-03 21:40:00',
-                    dayStatus: 'soleado',
-                    icon: pressureIcon('soleado'),
-                    image: pressureImage('soleado'),
-                },
-                {
-                    name: 'Pressure',
-                    slug: 'pressure',
-                    value: 1013,
-                    created_at: '2023-01-03 21:30:00',
-                    dayStatus: 'soleado',
-                    icon: pressureIcon('soleado'),
-                    image: pressureImage('soleado'),
-                },
-                {
-                    name: 'Pressure',
-                    slug: 'pressure',
-                    value: 1009,
-                    created_at: '2023-01-03 21:20:00',
-                    dayStatus: 'soleado',
-                    icon: pressureIcon('soleado'),
-                    image: pressureImage('soleado'),
-                },
-                {
-                    name: 'Pressure',
-                    slug: 'pressure',
-                    value: 1012,
-                    created_at: '2023-01-03 21:10:00',
-                    dayStatus: 'soleado',
-                    icon: pressureIcon('soleado'),
-                    image: pressureImage('soleado'),
-                },
+    const API_URL = process.env.VUE_APP_API_URL
 
-            ],
-        }
-    }, 1000);
+    fetch(API_URL + '/weatherstation/v1/pressure')
+        .then(response => response.json())
+        .then(data => datas.value = preparePressure(data.datas));
 
-    setInterval(() => {
-        if (datas.value && datas.value.value < 1035) {
-            datas.value.value++;
-        }
-    }, 3000);
+    const echo = LaravelEcho();
 
+    echo.channel('weather-station')
+        .listen('WeatherStationUpdateEvent', async (data: any) => {
+            console.log('new message received');
+            console.log(data);
+
+            // TODO: Solucionar la mezcla de datos
+
+
+            if (datas.value && data.datas.slug === 'pressure') {
+                datas.value = preparePressure(data.datas);
+            }
+        })
 
     return datas
 }

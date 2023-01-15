@@ -34,17 +34,15 @@ export function humidityImage(status: string): string {
 
 export function pressureImage(status: string): string {
     const availableImages: { [key: string]: string } = {
-        'soleado': require('@/assets/images/backgrounds/pressure/soleado.webp'),
-        'noche': require('@/assets/images/backgrounds/pressure/noche.webp'),
-        'anocheciendo': require('@/assets/images/backgrounds/pressure/anocheciendo.webp'),
-        'atardecer': require('@/assets/images/backgrounds/pressure/atardecer.webp'),
-        'nublado': require('@/assets/images/backgrounds/pressure/nublado.webp'),
+        'normal': require('@/assets/images/backgrounds/pressure/normal.webp'),
+        'baja': require('@/assets/images/backgrounds/pressure/baja.webp'),
+        'alta': require('@/assets/images/backgrounds/pressure/alta.webp'),
     };
 
     if (availableImages[status]) {
         return availableImages[status];
     } else {
-        return require('@/assets/images/backgrounds/pressure/soleado.webp');
+        return require('@/assets/images/backgrounds/pressure/normal.webp');
     }
 }
 

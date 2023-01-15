@@ -15,60 +15,6 @@ export function temperatureData() {
         .then(response => response.json())
         .then(data => datas.value = prepareTemperature(data.datas));
 
-
-
-    /*
-    datas.value = {
-        name: 'Temperatura',
-        slug: 'temperature',
-        value: 18,
-        created_at: '2023-01-03 22:03:00',
-        historical: [
-            {
-                name: 'Temperatura',
-                slug: 'temperature',
-                value: 19,
-                created_at: '2023-01-03 21:40:00',
-                dayStatus: 'anocheciendo',
-                icon: temperatureIcon('anocheciendo'),
-                image: temperatureImage('anocheciendo'),
-            },
-            {
-                name: 'Temperatura',
-                slug: 'temperature',
-                value: 20,
-                created_at: '2023-01-03 21:30:00',
-                dayStatus: 'atardecer',
-                icon: temperatureIcon('atardecer'),
-                image: temperatureImage('atardecer'),
-            },
-            {
-                name: 'Temperatura',
-                slug: 'temperature',
-                value: 21,
-                created_at: '2023-01-03 21:20:00',
-                dayStatus: 'soleado',
-                icon: temperatureIcon('soleado'),
-                image: temperatureImage('soleado'),
-            },
-            {
-                name: 'Temperatura',
-                slug: 'temperature',
-                value: 22,
-                created_at: '2023-01-03 21:08:00',
-                dayStatus: 'nublado',
-                icon: temperatureIcon('nublado'),
-                image: temperatureImage('nublado'),
-            },
-
-        ],
-        dayStatus: 'noche',
-        icon: temperatureIcon('noche'),
-        image: temperatureImage('noche'),
-    }
-    */
-
-
     const echo = LaravelEcho();
 
     echo.channel('weather-station')
