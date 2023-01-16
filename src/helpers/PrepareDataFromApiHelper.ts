@@ -1,6 +1,6 @@
 import { TemperatureType } from '../types/TemperatureType';
-import { temperatureIcon, windIcon } from './IconHelper';
-import { temperatureImage, windImage } from './ImageHelper';
+import { temperatureIcon, windIcon, lightIcon } from './IconHelper';
+import { temperatureImage, windImage, lightImage } from './ImageHelper';
 import { HumidityType } from '../types/HumidityType';
 import { humidityIcon } from './IconHelper';
 import { humidityImage } from './ImageHelper';
@@ -8,6 +8,7 @@ import { pressureIcon } from '@/helpers/IconHelper';
 import { pressureImage } from '@/helpers/ImageHelper';
 import { PressureType } from '../types/PressureType';
 import { WindType } from '../types/WindType';
+import { LightType } from '../types/LightType';
 
 export function prepareTemperature(datas: TemperatureType): TemperatureType {
 
@@ -107,13 +108,13 @@ export function prepareWind(datas: WindType): WindType {
 
     if (speed === 0) {
         datas.dayStatus = 'null';
-    } else if (speed > 5) {
+    } else if (speed < 5) {
         datas.dayStatus = 'bajo';
     } else if (speed < 10) {
         datas.dayStatus = 'moderado';
     } else if (speed < 20) {
         datas.dayStatus = 'alto';
-    } else if (speed < 30) {
+    } else if (speed >= 20) {
         datas.dayStatus = 'muy-alto';
     } else {
         datas.dayStatus = 'null';
@@ -125,6 +126,35 @@ export function prepareWind(datas: WindType): WindType {
     if (datas.historical) {
         datas.historical.forEach((data) => {
             prepareWind(data);
+        });
+    }
+
+    return datas;
+}
+
+export function prepareLight(datas: LightType): LightType {
+    const lumens = datas.lumens;
+
+    if (lumens === 0) {
+        datas.dayStatus = 'null';
+    } else if (lumens < 10000) {
+        datas.dayStatus = 'bajo';
+    } else if (lumens < 30000) {
+        datas.dayStatus = 'moderado';
+    } else if (lumens < 50000) {
+        datas.dayStatus = 'alto';
+    } else if (lumens >= 50000) {
+        datas.dayStatus = 'muy-alto';
+    } else {
+        datas.dayStatus = 'null';
+    }
+
+    datas.icon = lightIcon(datas.dayStatus);
+    datas.image = lightImage(datas.dayStatus);
+
+    if (datas.historical) {
+        datas.historical.forEach((data) => {
+            prepareLight(data);
         });
     }
 

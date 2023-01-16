@@ -65,17 +65,17 @@ export function windImage(status: string): string {
 
 export function lightImage(status: string): string {
     const availableImages: { [key: string]: string } = {
-        'soleado': require('@/assets/images/backgrounds/light/soleado.webp'),
-        'noche': require('@/assets/images/backgrounds/light/noche.webp'),
-        'anocheciendo': require('@/assets/images/backgrounds/light/anocheciendo.webp'),
-        'atardecer': require('@/assets/images/backgrounds/light/atardecer.webp'),
-        'nublado': require('@/assets/images/backgrounds/light/nublado.webp'),
+        'null': require('@/assets/images/backgrounds/light/null.webp'),
+        'bajo': require('@/assets/images/backgrounds/light/bajo.webp'),
+        'moderado': require('@/assets/images/backgrounds/light/moderado.webp'),
+        'alto': require('@/assets/images/backgrounds/light/alto.webp'),
+        'muy-alto': require('@/assets/images/backgrounds/light/muy-alto.webp'),
     };
 
     if (availableImages[status]) {
         return availableImages[status];
     } else {
-        return require('@/assets/images/backgrounds/light/soleado.webp');
+        return require('@/assets/images/backgrounds/light/null.webp');
     }
 }
 

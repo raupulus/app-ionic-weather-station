@@ -221,7 +221,7 @@ export function useResumeData() {
             light: {
                 name: 'Light',
                 slug: 'light',
-                value: 10,
+                lumens: 10,
                 index: 0,
                 uva: 0,
                 uvb: 0,
@@ -233,7 +233,7 @@ export function useResumeData() {
                     {
                         name: 'Light',
                         slug: 'light',
-                        value: 18,
+                        lumens: 18,
                         index: 1,
                         uva: 0,
                         uvb: 0,
@@ -245,7 +245,7 @@ export function useResumeData() {
                     {
                         name: 'Light',
                         slug: 'light',
-                        value: 30,
+                        lumens: 30,
                         index: 1,
                         uva: 1,
                         uvb: 1,
@@ -257,7 +257,7 @@ export function useResumeData() {
                     {
                         name: 'Light',
                         slug: 'light',
-                        value: 40,
+                        lumens: 40,
                         index: 3,
                         uva: 2,
                         uvb: 1,
@@ -269,7 +269,7 @@ export function useResumeData() {
                     {
                         name: 'Light',
                         slug: 'light',
-                        value: 80,
+                        lumens: 80,
                         index: 10,
                         uva: 4,
                         uvb: 3,
