@@ -111,15 +111,15 @@ export function airQualityIcon(status: string): string {
     return icon;
 }
 
-
 export function rainIcon(status: string): string {
 
-    let icon = 'wi wi-sunrise';
+    let icon = 'wi wi-cloud';
 
     const availableIcons: { [key: string]: string } = {
-        'good': 'wi wi-sunrise',
-        'regular': 'wi wi-sleet',
-        'bad': 'wi wi-hail',
+        'claro': 'wi wi-cloud',
+        'bajo': 'wi wi-sleet',
+        'moderado': 'wi wi-hail',
+        'fuerte': 'wi wi-rain',
     };
 
     if (availableIcons[status]) {
@@ -134,9 +134,10 @@ export function lightningIcon(status: string): string {
     let icon = 'wi wi-sunrise';
 
     const availableIcons: { [key: string]: string } = {
-        'null': 'wi wi-sunrise',
-        'some': 'wi wi-storm-showers',
-        'many': 'wi wi-lightning',
+        'ninguno': 'wi wi-sunrise',
+        'algunos': 'wi wi-night-alt-lightning',
+        'pocos': 'wi wi-night-alt-storm-showers',
+        'muchos': 'wi wi-night-thunderstorm',
     };
 
     if (availableIcons[status]) {

@@ -1,6 +1,8 @@
 import { GenericCommonDataType } from './GenericCommonDataType';
 
 export type RainType = GenericCommonDataType & {
-    value: number,
+    rain: number,
+    rain_intensity: number,
+    rain_month: number,
     historical?: RainType[];
 }

@@ -340,7 +340,9 @@ export function useResumeData() {
             rain: {
                 name: 'Lluvia',
                 slug: 'rain',
-                value: 200,
+                rain: 200,
+                rain_intensity: 0.2,
+                rain_month: 200,
                 created_at: '2023-01-03 21:50:00',
                 dayStatus: 'many',
                 icon: rainIcon('many'),
@@ -349,7 +351,9 @@ export function useResumeData() {
                     {
                         name: 'Lluvia',
                         slug: 'rain',
-                        value: 50,
+                        rain: 50,
+                        rain_intensity: 0.2,
+                        rain_month: 200,
                         created_at: '2023-01-03 21:40:00',
                         dayStatus: 'some',
                         icon: rainIcon('some'),
@@ -359,7 +363,9 @@ export function useResumeData() {
                     {
                         name: 'Lluvia',
                         slug: 'rain',
-                        value: 70,
+                        rain: 70,
+                        rain_intensity: 0.2,
+                        rain_month: 200,
                         created_at: '2023-01-03 21:30:00',
                         dayStatus: 'some',
                         icon: rainIcon('some'),
@@ -369,7 +375,9 @@ export function useResumeData() {
                     {
                         name: 'Lluvia',
                         slug: 'rain',
-                        value: 0,
+                        rain: 0,
+                        rain_intensity: 0.2,
+                        rain_month: 200,
                         created_at: '2023-01-03 21:20:00',
                         dayStatus: 'null',
                         icon: rainIcon('null'),

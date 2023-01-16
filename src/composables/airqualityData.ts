@@ -17,7 +17,6 @@ export function airQualityData() {
     echo.channel('weather-station')
         .listen('WeatherStationUpdateEvent', async (data: any) => {
 
-            console.log(data.datas);
             if (datas.value && data.datas.slug === 'air_quality') {
                 datas.value = prepareAirQuality(data.datas);
             }

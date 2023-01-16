@@ -3,8 +3,8 @@ import { UnitType } from "@/types/UnitType";
 export function units(): UnitType {
     const datas: UnitType = {
         lightning: {
-            quantity: 'nº',
             distance: 'km',
+            quantity: 'nº',
             energy: 'kA',
         },
         temperature: {
@@ -23,7 +23,10 @@ export function units(): UnitType {
             max: 'km/h',
         },
         rain: {
-            value: 'mm',
+            rain: 'mm',
+            rain_intensity: 'mm/h',
+            rain_month: 'mm',
+
         },
         air_quality: {
             air_quality: '%',

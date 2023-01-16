@@ -96,30 +96,30 @@ export function airQualityImage(status: string): string {
 
 export function rainImage(status: string): string {
     const availableImages: { [key: string]: string } = {
-        'soleado': require('@/assets/images/backgrounds/rain/soleado.webp'),
-        'noche': require('@/assets/images/backgrounds/rain/noche.webp'),
-        'anocheciendo': require('@/assets/images/backgrounds/rain/anocheciendo.webp'),
-        'atardecer': require('@/assets/images/backgrounds/rain/atardecer.webp'),
-        'nublado': require('@/assets/images/backgrounds/rain/nublado.webp'),
+        'bajo': require('@/assets/images/backgrounds/rain/bajo.webp'),
+        'claro': require('@/assets/images/backgrounds/rain/claro.webp'),
+        'moderado': require('@/assets/images/backgrounds/rain/moderado.webp'),
+        'fuerte': require('@/assets/images/backgrounds/rain/fuerte.webp'),
     };
 
     if (availableImages[status]) {
         return availableImages[status];
     } else {
-        return require('@/assets/images/backgrounds/rain/soleado.webp');
+        return require('@/assets/images/backgrounds/rain/bajo.webp');
     }
 }
 
 export function lightningImage(status: string): string {
     const availableImages: { [key: string]: string } = {
-        'null': require('@/assets/images/backgrounds/lightning/null.webp'),
-        'some': require('@/assets/images/backgrounds/lightning/some.webp'),
-        'many': require('@/assets/images/backgrounds/lightning/many.webp'),
+        'ninguno': require('@/assets/images/backgrounds/lightning/ninguno.webp'),
+        'pocos': require('@/assets/images/backgrounds/lightning/pocos.webp'),
+        'algunos': require('@/assets/images/backgrounds/lightning/algunos.webp'),
+        'muchos': require('@/assets/images/backgrounds/lightning/muchos.webp'),
     };
 
     if (availableImages[status]) {
         return availableImages[status];
     } else {
-        return require('@/assets/images/backgrounds/lightning/null.webp');
+        return require('@/assets/images/backgrounds/lightning/ninguno.webp');
     }
 }

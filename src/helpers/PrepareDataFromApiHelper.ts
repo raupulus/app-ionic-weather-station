@@ -1,6 +1,6 @@
 import { TemperatureType } from '../types/TemperatureType';
-import { temperatureIcon, windIcon, lightIcon } from './IconHelper';
-import { temperatureImage, windImage, lightImage, airQualityImage } from './ImageHelper';
+import { temperatureIcon, windIcon, lightIcon, rainIcon, lightningIcon } from './IconHelper';
+import { temperatureImage, windImage, lightImage, airQualityImage, rainImage, lightningImage } from './ImageHelper';
 import { HumidityType } from '../types/HumidityType';
 import { humidityIcon } from './IconHelper';
 import { humidityImage } from './ImageHelper';
@@ -10,6 +10,8 @@ import { PressureType } from '../types/PressureType';
 import { WindType } from '../types/WindType';
 import { LightType } from '../types/LightType';
 import { AirQualityType } from '../types/AirQualityType';
+import { RainType } from '../types/RainType';
+import { LightningType } from '../types/LightningType';
 
 export function prepareTemperature(datas: TemperatureType): TemperatureType {
 
@@ -183,6 +185,61 @@ export function prepareAirQuality(datas: AirQualityType): AirQualityType {
     if (datas.historical) {
         datas.historical.forEach((data) => {
             prepareAirQuality(data);
+        });
+    }
+
+    return datas;
+}
+
+export function prepareRain(datas: RainType): RainType {
+    const rain = datas.rain; // mm
+
+    if (rain === 0) {
+        datas.dayStatus = 'claro';
+    } else if (rain < 10) {
+        datas.dayStatus = 'bajo';
+    } else if (rain < 30) {
+        datas.dayStatus = 'moderado';
+    } else if (rain >= 30) {
+        datas.dayStatus = 'fuerte';
+    } else {
+        datas.dayStatus = 'claro';
+    }
+
+    datas.icon = rainIcon(datas.dayStatus);
+    datas.image = rainImage(datas.dayStatus);
+
+    if (datas.historical) {
+        datas.historical.forEach((data) => {
+            prepareRain(data);
+        });
+    }
+
+    return datas;
+}
+
+
+export function prepareLightning(datas: LightningType): LightningType {
+    const lightning = datas.distance; // mm
+
+    if (lightning === 0) {
+        datas.dayStatus = 'ninguno';
+    } else if (lightning < 3) {
+        datas.dayStatus = 'pocos';
+    } else if (lightning < 5) {
+        datas.dayStatus = 'algunos';
+    } else if (lightning >= 5) {
+        datas.dayStatus = 'muchos';
+    } else {
+        datas.dayStatus = 'ninguno';
+    }
+
+    datas.icon = lightningIcon(datas.dayStatus);
+    datas.image = lightningImage(datas.dayStatus);
+
+    if (datas.historical) {
+        datas.historical.forEach((data) => {
+            prepareLightning(data);
         });
     }
 
