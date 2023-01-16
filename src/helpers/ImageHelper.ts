@@ -81,15 +81,16 @@ export function lightImage(status: string): string {
 
 export function airQualityImage(status: string): string {
     const availableImages: { [key: string]: string } = {
+        'null': require('@/assets/images/backgrounds/airquality/null.webp'),
         'good': require('@/assets/images/backgrounds/airquality/good.webp'),
         'regular': require('@/assets/images/backgrounds/airquality/regular.webp'),
-        '': require('@/assets/images/backgrounds/airquality/bad.webp'),
+        'bad': require('@/assets/images/backgrounds/airquality/bad.webp'),
     };
 
     if (availableImages[status]) {
         return availableImages[status];
     } else {
-        return require('@/assets/images/backgrounds/airquality/good.webp');
+        return require('@/assets/images/backgrounds/airquality/null.webp');
     }
 }
 

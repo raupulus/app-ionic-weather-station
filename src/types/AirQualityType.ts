@@ -1,8 +1,8 @@
 import { GenericCommonDataType } from './GenericCommonDataType';
 
 export type AirQualityType = GenericCommonDataType & {
-    co2: number,
+    air_quality: number, // 0-100
     tvoc: number,
-    quality: number, // 0-100
+    eco2: number,
     historical?: AirQualityType[];
 }

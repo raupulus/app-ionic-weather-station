@@ -1,14 +1,15 @@
 import { TemperatureType } from '../types/TemperatureType';
 import { temperatureIcon, windIcon, lightIcon } from './IconHelper';
-import { temperatureImage, windImage, lightImage } from './ImageHelper';
+import { temperatureImage, windImage, lightImage, airQualityImage } from './ImageHelper';
 import { HumidityType } from '../types/HumidityType';
 import { humidityIcon } from './IconHelper';
 import { humidityImage } from './ImageHelper';
-import { pressureIcon } from '@/helpers/IconHelper';
+import { pressureIcon, airQualityIcon } from '@/helpers/IconHelper';
 import { pressureImage } from '@/helpers/ImageHelper';
 import { PressureType } from '../types/PressureType';
 import { WindType } from '../types/WindType';
 import { LightType } from '../types/LightType';
+import { AirQualityType } from '../types/AirQualityType';
 
 export function prepareTemperature(datas: TemperatureType): TemperatureType {
 
@@ -155,6 +156,33 @@ export function prepareLight(datas: LightType): LightType {
     if (datas.historical) {
         datas.historical.forEach((data) => {
             prepareLight(data);
+        });
+    }
+
+    return datas;
+}
+
+export function prepareAirQuality(datas: AirQualityType): AirQualityType {
+    const quality = datas.air_quality;
+
+    if (quality === 0) {
+        datas.dayStatus = 'null';
+    } else if (quality < 50) {
+        datas.dayStatus = 'bad';
+    } else if (quality < 80) {
+        datas.dayStatus = 'regular';
+    } else if (quality >= 80) {
+        datas.dayStatus = 'good';
+    } else {
+        datas.dayStatus = 'null';
+    }
+
+    datas.icon = airQualityIcon(datas.dayStatus);
+    datas.image = airQualityImage(datas.dayStatus);
+
+    if (datas.historical) {
+        datas.historical.forEach((data) => {
+            prepareAirQuality(data);
         });
     }
 

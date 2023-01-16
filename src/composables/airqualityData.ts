@@ -1,67 +1,27 @@
-import { airQualityIcon } from '@/helpers/IconHelper';
-import { airQualityImage } from '@/helpers/ImageHelper';
 import { ref } from 'vue'
 import { AirQualityType } from '@/types/AirQualityType';
+import { LaravelEcho } from '../plugins/LaravelEcho';
+import { prepareAirQuality } from '../helpers/PrepareDataFromApiHelper';
 
 export function airQualityData() {
     const datas = ref<AirQualityType | null>(null)
 
-    setTimeout(() => {
-        datas.value = {
-            name: 'Air Quality',
-            slug: 'air_quality',
-            co2: 420,
-            tvoc: 0,
-            quality: 35,
-            created_at: '2023-01-03 21:50:00',
-            dayStatus: 'bad',
-            icon: airQualityIcon('bad'),
-            image: airQualityImage('bad'),
-            historical: [
-                {
-                    name: 'Air Quality',
-                    slug: 'air_quality',
-                    co2: 415,
-                    tvoc: 0,
-                    quality: 42,
-                    dayStatus: 'good',
-                    icon: airQualityIcon('good'),
-                    image: airQualityImage('good'),
-                    created_at: '2023-01-03 21:50:00',
-                },
-                {
-                    name: 'Air Quality',
-                    slug: 'air_quality',
-                    co2: 412,
-                    tvoc: 0,
-                    quality: 55,
-                    dayStatus: 'good',
-                    icon: airQualityIcon('good'),
-                    image: airQualityImage('good'),
-                    created_at: '2023-01-03 21:50:00',
-                },
-                {
-                    name: 'Air Quality',
-                    slug: 'air_quality',
-                    co2: 417,
-                    tvoc: 0,
-                    quality: 67,
-                    dayStatus: 'regular',
-                    icon: airQualityIcon('regular'),
-                    image: airQualityImage('regular'),
-                    created_at: '2023-01-03 21:50:00',
-                },
-            ]
-        }
-    }, 1000);
+    const API_URL = process.env.VUE_APP_API_URL
 
-    setInterval(() => {
-        if (datas.value && datas.value.co2 < 437) {
-            datas.value.co2++;
-            datas.value.tvoc++;
-            datas.value.quality++;
-        }
-    }, 3000);
+    fetch(API_URL + '/weatherstation/v1/air-quality')
+        .then(response => response.json())
+        .then(data => datas.value = prepareAirQuality(data.datas));
+
+    const echo = LaravelEcho();
+
+    echo.channel('weather-station')
+        .listen('WeatherStationUpdateEvent', async (data: any) => {
+
+            console.log(data.datas);
+            if (datas.value && data.datas.slug === 'air_quality') {
+                datas.value = prepareAirQuality(data.datas);
+            }
+        })
 
 
     return datas

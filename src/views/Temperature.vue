@@ -26,7 +26,7 @@ import TitleSlide from '@/components/TitleSlide.vue';
 
 import MainWidgetResume from '@/components/MainWidgetResume.vue';
 
-import { temperatureData } from '../composables/temperatureData';
+import { temperatureData } from '@/composables/temperatureData';
 
 export default defineComponent({
     name: 'TemperaturePage',

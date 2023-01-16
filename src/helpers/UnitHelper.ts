@@ -26,8 +26,8 @@ export function units(): UnitType {
             value: 'mm',
         },
         air_quality: {
-            quality: '%',
-            co2: 'ppm',
+            air_quality: '%',
+            eco2: 'ppm',
             tvoc: 'ppb',
         },
         light: {

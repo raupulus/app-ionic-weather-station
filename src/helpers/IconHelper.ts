@@ -95,12 +95,13 @@ export function lightIcon(status: string): string {
 
 export function airQualityIcon(status: string): string {
 
-    let icon = 'wi wi-day-sunny';
+    let icon = 'wi wi-windy';
 
     const availableIcons: { [key: string]: string } = {
-        'good': 'wi wi-sunrise',
-        'regular': 'wi wi-cloud-refresh',
-        'bad': 'wi wi-train',
+        'null': 'wi wi-windy',
+        'good': 'wi wi-refresh',
+        'regular': 'wi wi-smoke',
+        'bad': 'wi wi-volcano',
     };
 
     if (availableIcons[status]) {
