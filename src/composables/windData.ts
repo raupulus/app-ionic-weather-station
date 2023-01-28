@@ -15,11 +15,8 @@ export function windData() {
     const echo = LaravelEcho();
 
     echo.channel('weather-station')
-        .listen('WeatherStationUpdateEvent', async (data: any) => {
-            console.log('new message received')
-            console.log(data)
-
-            if (datas.value && data.datas.slug === 'wind') {
+        .listen('WeatherStation\\WindUpdateEvent', async (data: any) => {
+            if (datas.value && data.datas) {
                 datas.value = prepareWind(data.datas);
             }
         })

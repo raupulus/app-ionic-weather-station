@@ -16,14 +16,9 @@ export function pressureData() {
     const echo = LaravelEcho();
 
     echo.channel('weather-station')
-        .listen('WeatherStationUpdateEvent', async (data: any) => {
-            console.log('new message received');
-            console.log(data);
+        .listen('WeatherStation\\PressureUpdateEvent', async (data: any) => {
 
-            // TODO: Solucionar la mezcla de datos
-
-
-            if (datas.value && data.datas.slug === 'pressure') {
+            if (datas.value && data.datas) {
                 datas.value = preparePressure(data.datas);
             }
         })

@@ -18,11 +18,9 @@ export function temperatureData() {
     const echo = LaravelEcho();
 
     echo.channel('weather-station')
-        .listen('WeatherStationUpdateEvent', async (data: any) => {
-            //console.log('new message received')
-            //console.log(data)
+        .listen('WeatherStation\\TemperatureUpdateEvent', async (data: any) => {
 
-            if (datas.value && data.datas.slug === 'temperature') {
+            if (datas.value && data.datas) {
                 datas.value = prepareTemperature(data.datas);
             }
         })

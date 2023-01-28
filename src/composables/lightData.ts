@@ -15,9 +15,9 @@ export function lightData() {
     const echo = LaravelEcho();
 
     echo.channel('weather-station')
-        .listen('WeatherStationUpdateEvent', async (data: any) => {
+        .listen('WeatherStation\\LightUpdateEvent', async (data: any) => {
 
-            if (datas.value && data.datas.slug === 'light') {
+            if (datas.value && data.datas) {
                 datas.value = prepareLight(data.datas);
             }
         })

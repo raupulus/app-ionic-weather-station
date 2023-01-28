@@ -16,14 +16,9 @@ export function humidityData() {
     const echo = LaravelEcho();
 
     echo.channel('weather-station')
-        .listen('WeatherStationUpdateEvent', async (data: any) => {
-            console.log('new message received');
-            console.log(data);
+        .listen('WeatherStation\\HumidityUpdateEvent', async (data: any) => {
 
-            // TODO: Solucionar la mezcla de datos
-
-
-            if (datas.value && data.datas.slug === 'humidity') {
+            if (datas.value && data.datas) {
                 datas.value = prepareHumidity(data.datas);
             }
         })

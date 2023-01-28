@@ -15,9 +15,9 @@ export function airQualityData() {
     const echo = LaravelEcho();
 
     echo.channel('weather-station')
-        .listen('WeatherStationUpdateEvent', async (data: any) => {
+        .listen('WeatherStation\\AirQualityUpdateEvent', async (data: any) => {
 
-            if (datas.value && data.datas.slug === 'air_quality') {
+            if (datas.value && data.datas) {
                 datas.value = prepareAirQuality(data.datas);
             }
         })

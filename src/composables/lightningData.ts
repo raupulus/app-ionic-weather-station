@@ -15,9 +15,9 @@ export function lightningData() {
     const echo = LaravelEcho();
 
     echo.channel('weather-station')
-        .listen('WeatherStationUpdateEvent', async (data: any) => {
+        .listen('WeatherStation\\LightningUpdateEvent', async (data: any) => {
 
-            if (datas.value && data.datas.slug === 'lightning') {
+            if (datas.value && data.datas) {
                 datas.value = prepareLightning(data.datas);
             }
         })

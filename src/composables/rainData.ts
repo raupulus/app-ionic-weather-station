@@ -16,9 +16,9 @@ export function rainData() {
     const echo = LaravelEcho();
 
     echo.channel('weather-station')
-        .listen('WeatherStationUpdateEvent', async (data: any) => {
+        .listen('WeatherStation\\RainUpdateEvent', async (data: any) => {
 
-            if (datas.value && data.datas.slug === 'rain') {
+            if (datas.value && data.datas) {
                 datas.value = prepareRain(data.datas);
             }
         })
