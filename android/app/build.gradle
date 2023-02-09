@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    namespace 'app.ionic.weather.station'
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "app.ionic.weather.station"
