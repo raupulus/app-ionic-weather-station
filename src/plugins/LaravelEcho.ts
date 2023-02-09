@@ -13,7 +13,8 @@ const VueEchoConfig = {
     disableStats: false,
 };
 
-//console.log(VueEchoConfig);
+
+console.log(VueEchoConfig);
 
 const VuePusherConfig = new Pusher(process.env.VUE_APP_PUSHER_KEY, VueEchoConfig);
 

@@ -1,7 +1,14 @@
 <template>
-    <h1 class="title" :style="{ backgroundImage: `url(${require(`@/assets/images/titlebackground.jpg`)})` }">
-        Clima Chipiona
-    </h1>
+
+    <div class="">
+        <h1 class="title" :style="{
+            background: `linear-gradient(transparent, 70%, var(--ion-color-warning-shade)), url(${require(`@/assets/images/titlebackground.jpg`)}) no-repeat top center fixed`,
+            backgroundSize: 'cover',
+        }">
+            Clima Chipiona
+        </h1>
+    </div>
+
 </template>
 
 <script lang="ts">
@@ -21,9 +28,6 @@ export default defineComponent({
     text-align: center;
     font-weight: 800;
     font-size: 3rem;
-    background-color: rgb(164, 199, 252);
-    background-position: center;
-    background-size: cover;
     color: #ded8d8;
     text-shadow:
         1px 1px 1px rgb(37, 36, 36),

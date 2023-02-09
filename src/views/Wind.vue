@@ -7,6 +7,10 @@
             <div id="container">
                 <TitleSlide></TitleSlide>
 
+                <div>
+                    <TimeLineStatus></TimeLineStatus>
+                </div>
+
                 <div class="box-cards">
                     <div v-if="datas">
                         <MainWidgetResume :datas="datas"></MainWidgetResume>
@@ -28,6 +32,8 @@ import MainWidgetResume from '@/components/MainWidgetResume.vue';
 
 import { windData } from '@/composables/windData';
 
+import TimeLineStatus from '@/components/TimelineStatus/TimeLineStatus.vue';
+
 export default defineComponent({
     name: 'WindPage',
     components: {
@@ -35,7 +41,8 @@ export default defineComponent({
         IonPage,
         HeaderMobile,
         TitleSlide,
-        MainWidgetResume
+        MainWidgetResume,
+        TimeLineStatus
     },
     setup() {
         let datas = windData();
