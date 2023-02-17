@@ -1,14 +1,18 @@
 <template>
-    <div class="time-line-status-container">
+    <div class="m-auto time-line-status-container md:max-w-lg">
+        <div>
+            <div>Ahora</div>
+            <div>Records</div>
+        </div>
         <div class="time-line-status-container-top">
-            <TimeLineStatusTop></TimeLineStatusTop>
+            <TimeLineStatusTop hour="18:00"></TimeLineStatusTop>
         </div>
 
         <div class="time-line-status-container-points">
-            <TimeLineStatusPoint></TimeLineStatusPoint>
-            <TimeLineStatusPoint></TimeLineStatusPoint>
-            <TimeLineStatusPoint></TimeLineStatusPoint>
-            <TimeLineStatusPoint></TimeLineStatusPoint>
+            <TimeLineStatusPoint hour="17:00"></TimeLineStatusPoint>
+            <TimeLineStatusPoint hour="16:00"></TimeLineStatusPoint>
+            <TimeLineStatusPoint hour="15:00"></TimeLineStatusPoint>
+            <TimeLineStatusPoint hour="14:00"></TimeLineStatusPoint>
         </div>
 
     </div>
@@ -30,9 +34,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.time-line-status-container {}
-
+<style scoped lang="scss">
 .time-line-status-container-top {
     background-color: var(--ion-color-warning-shade);
 }

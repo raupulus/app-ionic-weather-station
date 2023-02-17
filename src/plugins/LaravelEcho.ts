@@ -14,7 +14,7 @@ const VueEchoConfig = {
 };
 
 
-console.log(VueEchoConfig);
+//console.debug(VueEchoConfig);
 
 const VuePusherConfig = new Pusher(process.env.VUE_APP_PUSHER_KEY, VueEchoConfig);
 

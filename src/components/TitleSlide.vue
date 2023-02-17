@@ -16,14 +16,12 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: 'TitleSlide',
-    components: {
-    },
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .title {
-    margin-top: 0;
+    margin: 0;
     padding: 40px 0;
     text-align: center;
     font-weight: 800;

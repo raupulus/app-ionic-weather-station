@@ -7,7 +7,10 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "ios": "ionic cap run ios -l --external --watch",
+    "ios:open": "ionic cap open ios -l --external",
+    "test": "ionic build && ionic cap copy ios && ionic cap open ios -l --external"
   },
   "dependencies": {
     "@capacitor/android": "4.6.1",
@@ -19,13 +22,8 @@
     "@capacitor/status-bar": "4.1.1",
     "@ionic/vue": "^6.0.0",
     "@ionic/vue-router": "^6.0.0",
-    "@tailwindcss/postcss7-compat": "^2.2.17",
-    "apexcharts": "^3.36.3",
     "core-js": "^3.6.5",
-    "ionicons": "^6.0.3",
-    "vue": "^3.2.21",
-    "vue-router": "^4.0.12",
-    "vue3-apexcharts": "^1.4.1"
+    "vue": "^3.2.21"
   },
   "devDependencies": {
     "@capacitor/cli": "4.6.1",
@@ -56,7 +54,12 @@
     "sass-loader": "^13.2.0",
     "tailwindcss": "^3.2.4",
     "ts-jest": "^27.0.7",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "vue3-apexcharts": "^1.4.1",
+    "apexcharts": "^3.36.3",
+    "@tailwindcss/postcss7-compat": "^2.2.17",
+    "ionicons": "^6.0.3",
+    "vue-router": "^4.0.12"
   },
   "description": "An Ionic project"
 }

@@ -4,6 +4,14 @@ import router from './router';
 
 import { IonicVue } from '@ionic/vue';
 
+/* Import Tailwind CSS */
+import "@/theme/tailwind.css";
+
+/* Import Weather Icons */
+import "@/assets/vendor/wather-icons/sass/weather-icons.scss";
+
+/* Import Fonts */
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
 
@@ -22,8 +30,7 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import '@/theme/variables.css';
-import "@/theme/tailwind.css";
-import "@/assets/vendor/wather-icons/sass/weather-icons.scss";
+
 
 const app = createApp(App)
   .use(IonicVue)
