@@ -62,6 +62,3 @@ replace_or_add_var_in_file "${WORKSCRIPT}/.env" 'VUE_APP_PUSHER_ENCRYPTED' "${VU
 replace_or_add_var_in_file "${WORKSCRIPT}/.env" 'VUE_APP_PUSHER_HOST' "${VUE_APP_PUSHER_HOST}"
 replace_or_add_var_in_file "${WORKSCRIPT}/.env" 'VUE_APP_PUSHER_PORT' "${VUE_APP_PUSHER_PORT}"
 replace_or_add_var_in_file "${WORKSCRIPT}/.env" 'VUE_APP_API_URL' "${VUE_APP_API_URL}"
-replace_or_add_var_in_file "${WORKSCRIPT}/.env" 'APP_NAME' "${APP_NAME}"
-replace_or_add_var_in_file "${WORKSCRIPT}/.env" 'APP_NAME' "${APP_NAME}"
-replace_or_add_var_in_file "${WORKSCRIPT}/.env" 'APP_NAME' "${APP_NAME}"
